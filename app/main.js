@@ -39,7 +39,7 @@ app.setAppUserModelId('net.hovancik.stretchly')
 
 global.shared = {
   isNewVersion: false,
-  isContributor: false
+  isContributor: true
 }
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -847,13 +847,6 @@ function getTrayMenu () {
             const untilMorning = new UntilMorning(settings).msToSunrise()
             pauseBreaks(untilMorning)
           }
-        }, {
-          type: 'separator'
-        }, {
-          label: i18next.t('main.indefinitely'),
-          click: function () {
-            pauseBreaks(1)
-          }
         }
       ]
     })
@@ -863,11 +856,6 @@ function getTrayMenu () {
     // nothing
   } else if (breakPlanner.scheduler.reference === 'finishBreak' && settings.get('breakStrictMode')) {
     // nothing
-  } else {
-    trayMenu.push({
-      label: i18next.t('main.resetBreaks'),
-      click: resetBreaks
-    })
   }
 
   trayMenu.push({
@@ -884,11 +872,6 @@ function getTrayMenu () {
       label: i18next.t('main.contributorPreferences'),
       click: function () {
         createContributorSettingsWindow()
-      }
-    }, {
-      label: i18next.t('main.syncPreferences'),
-      click: function () {
-        createSyncPreferencesWindow()
       }
     })
   }

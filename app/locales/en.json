@@ -22,7 +22,7 @@
     "continue": "Continue",
     "cancel": "Cancel",
     "preferences": "Preferences",
-    "contributorPreferences": "Contributor Preferences",
+    "contributorPreferences": "Advanced Preferences",
     "syncPreferences": "Sync Preferences"
   },
   "break": {
@@ -107,12 +107,12 @@
       "becomePatron": "Become a Patron",
       "alreadyContributor": "I'm already a contributor",
       "authenticateUsing": "Authenticate using:",
-      "contributorPreferences": "Contributor Preferences",
+      "contributorPreferences": "Advanced Preferences",
       "syncPreferences": "Sync Preferences"
     }
   },
   "contributorPreferences": {
-    "title": "Contributor Preferences",
+    "title": "Advanced Preferences",
     "notifications": "Break notifications:",
     "notificationsInfo": "System notification shown before breaks to let you prepare for it.",
     "beforeLongBreak": "Long Break:",
@@ -125,7 +125,7 @@
     "breakPostpone": "Postponement of breaks:",
     "breakPostponeInfo": "If enabled in main Preferences, you can postpone breaks. Following settings allow you to specify when, for how long and how many times you can postpone a break.",
     "miniBreaks": "Mini Breaks:",
-    "postponableFor": "Postponable for:",
+    "postponableFor": "Postponable after:",
     "postponeFor": "Postpone for:",
     "maxPostpones": "Max of postpones:",
     "longBreaks": "Long Breaks:",

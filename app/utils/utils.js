@@ -57,12 +57,12 @@ const formatTimeIn = function (milliseconds, i18next = require('i18next')) {
 
 // does not consider `postponesLimit`
 function canPostpone (postpone, passedPercent, postponePercent) {
-  return postpone && passedPercent <= postponePercent
+  return postpone && passedPercent >= postponePercent
 }
 
 // does not consider `postponesLimit`
 function canSkip (strictMode, postpone, passedPercent, postponePercent) {
-  return !((postpone && passedPercent <= postponePercent) || strictMode)
+  return !((postpone && passedPercent >= postponePercent) || strictMode)
 }
 
 function formatKeyboardShortcut (keyboardShortcut) {
