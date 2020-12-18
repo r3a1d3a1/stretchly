@@ -827,6 +827,11 @@ function getTrayMenu () {
       label: i18next.t('main.pause'),
       submenu: [
         {
+          label: i18next.t('main.forHalfHour'),
+          click: function () {
+            pauseBreaks(1800 * 1000)
+          }
+        }, {
           label: i18next.t('main.forHour'),
           click: function () {
             pauseBreaks(3600 * 1000)
@@ -835,11 +840,6 @@ function getTrayMenu () {
           label: i18next.t('main.for2Hours'),
           click: function () {
             pauseBreaks(3600 * 2 * 1000)
-          }
-        }, {
-          label: i18next.t('main.for5Hours'),
-          click: function () {
-            pauseBreaks(3600 * 5 * 1000)
           }
         }, {
           label: i18next.t('main.untilMorning'),
