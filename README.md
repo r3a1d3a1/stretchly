@@ -58,7 +58,9 @@ To run *Stretchly* from source you will need [Node.js](https://nodejs.org/), ide
 
 ### Custom installer
 
-You can create a custom installer by running `npm run pack` or `npm run dist` after `npm install --no-save`.
+You can create a custom installer by running `npm run pack` or `npm run dist` after `npm install --no-save`.  
+To create an installer for Windows w/o bothering with other versions, change line 15 of package.json to `"dist-all": "electron-builder build -w --x64"`  
+Otherwise lotsa stuff for linux and 32 bit architecture would need to be downloaded and built which takes a ton of time.
 
 ## Default behavior
 
