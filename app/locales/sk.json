@@ -23,7 +23,8 @@
     "cancel": "Zrušiť",
     "preferences": "Nastavenia",
     "contributorPreferences": "Nastavenia pre prispievateľov",
-    "syncPreferences": "Synchronizácia nastavení"
+    "syncPreferences": "Synchronizácia nastavení",
+    "warning": "Týmto sa obnovia pôvodné nastavenia aplikácie a všetky vaše nastavenia sa stratia."
   },
   "break": {
     "postpone": "Posunúť prestávku na neskôr",
@@ -46,7 +47,7 @@
       "fullscreen": "Celá obrazovka",
       "showIdeas": "Ukázať nápady na cvičenie počas prestávok",
       "allScreens": "Ukázať prestávky na každom monitore",
-      "monitorIdleTime": "Sledovať neaktívny čas (prestávky sú počas vašej neaktivity prerušené)",
+      "monitorIdleTime": "Sledovať neaktívny čas (prestávky sú počas vašej neaktivity prerušené).",
       "monitorDnd": "Ukázať prestávky aj počas režimu Nerušiť",
       "language": "Vyberte jazyk:",
       "restoreDefaults": "Obnoviť pôvodné nastavenia"
@@ -86,19 +87,21 @@
       "menubarIcon": "Ikonka:",
       "colour": "Farebná",
       "monochrome": "Čiernobiela",
-      "invertedMonochrome": "Otočená čiernobiela"
+      "invertedMonochrome": "Otočená čiernobiela",
+      "snowWhite": "Snehobiela"
     },
     "about": {
       "tagline": "Pamätá si prestávky za vás",
       "version": "Verzia ",
       "latestVersion": "Najnovšia verzia ",
-      "notifyNewVersion":"Automaticky ma upozorni na novú verziu",
+      "notifyNewVersion": "Automaticky ma upozorni na novú verziu",
       "learnMore": "Ak sa chcete dozvedieť viac o funkciách Stretchly, prezrieť tutoriál, stiahnuť najnovšiu verziu alebo nás kontaktovať kvôli podpore, ",
       "ourWebsite": "navštívte našu webstránku",
       "dot": ".",
       "developedBy": "Vyvinul",
       "janH": "Ján Hovančík",
-      "designedBy": "Ikona a UI dizajn Colin Shanley"
+      "designedBy": "Ikona a UI dizajn Colin Shanley",
+      "checkNewVersion": "Automaticky kontrolovať aktualizácie aplikácie"
     },
     "heart": {
       "loveStretchly": "Chcete pomôcť Stretchly?",
@@ -151,7 +154,20 @@
     "appearance": "Téma:",
     "light": "Svetlá",
     "dark": "Tmavá",
-    "system": "Nasleduj systém"
+    "system": "Nasleduj systém",
+    "showBreaksAsRegularWindowsTitle": "Správanie ako obyčajné okno:",
+    "showBreaksAsRegularWindows": "Ukáž prestávky ako obyčajné okná",
+    "showBreaksAsRegularWindowsInfo": "Ak povolené, okno prestávky sa začne správať ako obyčajné okno: nebude stále navrchu, bude môcť byť označené a objavý sa v panele úloh.",
+    "4": "Piaty monitor",
+    "3": "Štvrtý monitor",
+    "2": "Tretí monitor",
+    "1": "Druhý monitor",
+    "0": "Prvý monitor",
+    "cursor": "Nasleduj kurzor",
+    "primary": "Hlavný monitor",
+    "showOnMonitor": "Ukázať Prestávky na",
+    "screenInfo": "Ak je zobrazenie prestávok na všetkých monitoroch vypnuté, môžte si vybrať na ktorom monitore by sa prestávka mala objaviť.",
+    "screen": "Minitor pre Prestávky:"
   },
   "utils": {
     "none_0": "{{count}}",
@@ -200,6 +216,7 @@
     "afterMiniBreak_0": "po {{count}} Mini Prestávke",
     "afterMiniBreak_1": "po {{count}} Mini Prestávkach",
     "afterMiniBreak_2": "po {{count}} Mini Prestávkach",
-    "resuming": "Obnovenie prestávok"
+    "resuming": "Obnovenie prestávok",
+    "appExclusion": "Výnimka aplikácie"
   }
 }

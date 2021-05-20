@@ -22,8 +22,7 @@
     "continue": "Folytatás",
     "cancel": "Mégsem",
     "preferences": "Beállítások",
-    "contributorPreferences": "Támogatói beállítások",
-    "syncPreferences": "Sync Preferences"
+    "contributorPreferences": "Támogatói beállítások"
   },
   "break": {
     "postpone": "Szünet elhalasztása",
@@ -77,7 +76,6 @@
       "graphiteCrystal": "Grafitkristály",
       "coffeeKisses": "Kávé csók",
       "morningSwim": "Reggeli úszás",
-      "transparentMode": "Enable transparency",
       "sounds": "Hangok:",
       "enableSounds": "Hangok engedélyezése",
       "crystalGlass": "Üveg csilingelés",
@@ -86,19 +84,21 @@
       "menubarIcon": "Menüsáv ikon:",
       "colour": "Színes",
       "monochrome": "Egyszínű",
-      "invertedMonochrome": "Fordított egyszínű"
+      "invertedMonochrome": "Fordított egyszínű",
+      "snowWhite": "Hófehér",
+      "transparentMode": "Áttetszőség bekapcsolása"
     },
     "about": {
       "tagline": "A szünet emlékeztető alkalmazás",
       "version": "Verzió: ",
       "latestVersion": "Legfrissebb verzió: ",
-      "notifyNewVersion":"Automatikus értesítés új verziók esetén",
+      "notifyNewVersion": "Automatikus értesítés új verziók esetén",
       "learnMore": "Ahhoz, hogy többet tudj meg a Stretchly funkciókról, útmutatókat nézz meg, letöltsd a legfrissebb verziót vagy, hogy írj az ügyfélszolgálatunknak, ",
       "ourWebsite": "látogasd meg a weboldalunkat",
       "dot": ".",
       "developedBy": "Fejlesztette",
       "janH": "Jan Hovancik",
-      "designedBy": "Icon and UI design by Colin Shanley"
+      "designedBy": "Ikont és kinézetet tervezte Colin Shanley"
     },
     "heart": {
       "loveStretchly": "Szereted a Stretchlyt?",
@@ -108,7 +108,7 @@
       "alreadyContributor": "Már támogató vagyok",
       "authenticateUsing": "Azonosítás a következővel:",
       "contributorPreferences": "Támogatói beállítások",
-      "syncPreferences": "Sync Preferences"
+      "syncPreferences": "Beállítások szinkronizálása"
     }
   },
   "contributorPreferences": {
@@ -134,13 +134,6 @@
     "pauseUntilMorningInfo": "Állítsd be, hogy a 'Felfüggesztés reggelig' hány óráig függessze fel a szüneteket.",
     "welcomeWindow": "Üdvözlő ablak:",
     "showWelcomeWindow": "Üdvözlő ablak megjelenítése a következő indításkor",
-    "opacityTheme": "Theme transparency:",
-    "opacityInfo": "How solid should the break window be?",
-    "opacity": "Opacity:",
-    "breakWindowSize": "Break window size",
-    "breakWindowSizeInfo": "What percentage of the screen should the break window hide?",
-    "breakWindowWidth": "Width:",
-    "breakWindowHeight": "Height:",
     "sounds": "Hangok:",
     "volume": "Hangerő:",
     "miniBreakStartSound": "Hang lejátszása a Rövid szünetek kezdetekor is",
@@ -151,7 +144,9 @@
     "appearance": "Kinézet:",
     "light": "Világos",
     "dark": "Sötét",
-    "system": "Rendszer"
+    "system": "Rendszer",
+    "breakWindowWidth": "Szélesség:",
+    "breakWindowHeight": "Magasság:"
   },
   "utils": {
     "none": "{{count}}",

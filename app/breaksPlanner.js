@@ -2,6 +2,7 @@ const Scheduler = require('./utils/scheduler')
 const EventEmitter = require('events')
 const NaturalBreaksManager = require('./utils/naturalBreaksManager')
 const DndManager = require('./utils/dndManager')
+const AppExclusionsManager = require('./utils/appExclusionsManager')
 const log = require('electron-log')
 
 class BreaksPlanner extends EventEmitter {
@@ -14,6 +15,7 @@ class BreaksPlanner extends EventEmitter {
     this.isPaused = false
     this.naturalBreaksManager = new NaturalBreaksManager(settings)
     this.dndManager = new DndManager(settings)
+    this.appExclusionsManager = new AppExclusionsManager(settings)
 
     this.on('microbreakStarted', (shouldPlaySound) => {
       const interval = this.settings.get('microbreakDuration')
@@ -45,7 +47,7 @@ class BreaksPlanner extends EventEmitter {
     this.dndManager.on('dndStarted', () => {
       if (!this.isPaused && this.scheduler.reference !== 'finishMicrobreak' && this.scheduler.reference !== 'finishBreak' && this.scheduler.reference !== null) {
         this.clear()
-        log.info('Stretchly: pausing breaks for DND')
+        log.info('Stretchly: pausing breaks for Do Not Distrub')
         this.emit('updateToolTip')
       } else {
         this.dndManager.isOnDnd = false
@@ -55,8 +57,44 @@ class BreaksPlanner extends EventEmitter {
     this.dndManager.on('dndFinished', () => {
       if (!this.isPaused && this.scheduler.reference !== 'finishMicrobreak' && this.scheduler.reference !== 'finishBreak') {
         this.reset()
-        log.info('Stretchly: resuming breaks for DND')
+        log.info('Stretchly: resuming breaks for Do Not Distrub')
         this.emit('updateToolTip')
+      }
+    })
+
+    this.appExclusionsManager.on('appExclusionStarted', (rule, exclusion) => {
+      if (rule === 'pause') {
+        if (!this.isPaused && this.scheduler.reference !== 'finishMicrobreak' && this.scheduler.reference !== 'finishBreak' && this.scheduler.reference !== null) {
+          this.clear()
+          log.info(`Stretchly: pausing breaks as 'pause' exclusion found running: '${exclusion}'`)
+          this.emit('updateToolTip')
+        } else {
+          this.appExclusionsManager.inOnException = false
+        }
+      } else if (rule === 'resume') {
+        if (!this.isPaused && this.scheduler.reference !== 'finishMicrobreak' && this.scheduler.reference !== 'finishBreak') {
+          this.reset()
+          log.info(`Stretchly: resuming breaks as 'resume' exclusion found running: '${exclusion}'`)
+          this.emit('updateToolTip')
+        }
+      }
+    })
+
+    this.appExclusionsManager.on('appExclusionFinished', (rule) => {
+      if (rule === 'pause') {
+        if (!this.isPaused && this.scheduler.reference !== 'finishMicrobreak' && this.scheduler.reference !== 'finishBreak') {
+          this.reset()
+          log.info("Stretchly: resuming breaks as no 'pause' exclusion found running")
+          this.emit('updateToolTip')
+        }
+      } else if (rule === 'resume') {
+        if (!this.isPaused && this.scheduler.reference !== 'finishMicrobreak' && this.scheduler.reference !== 'finishBreak' && this.scheduler.reference !== null) {
+          this.clear()
+          log.info("Stretchly: pausing breaks as no 'resume' exclusion found running")
+          this.emit('updateToolTip')
+        } else {
+          this.appExclusionsManager.inOnException = true
+        }
       }
     })
   }
@@ -173,6 +211,7 @@ class BreaksPlanner extends EventEmitter {
   resume () {
     this.scheduler.cancel()
     this.isPaused = false
+    this.appExclusionsManager.reset()
     this.nextBreak()
   }
 

@@ -26,9 +26,11 @@ The latest official **installers** and **portable versions** for macOS, Windows,
 
 ### macOS
 
-You can also install *Stretchly* with [Homebrew](https://brew.sh/) by running `brew update && brew cask install stretchly`. When upgrading, run `brew update && brew upgrade --cask`. Don't forget to Quit Stretchly, first.
+You can also install *Stretchly* with [Homebrew](https://brew.sh/) by running `brew update && brew install --cask stretchly`. When upgrading, run `brew update && brew upgrade --cask`. Don't forget to Quit Stretchly, first.
 
  *Stretchly* is not signed (due to its costs) so you will need to use this workaround for the first run: [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).
+
+If you're using [Alfred](https://www.alfredapp.com) on macOS you can use this [Alfred Workflow](https://github.com/KingOfSpades/stretchFred) to interact with Stretchly.
 
 ### Windows
 
@@ -48,7 +50,7 @@ Please see http://electron.atom.io/docs/api/tray/ for Electron's Tray Linux spec
 
 For Natural breaks, you might need some packages too (`libxss-dev`).
 
-If *Stretchly* is not starting, you might need to run `sudo sysctl kernel.unprivileged_userns_clone=1`. Read more [here](https://github.com/electron/electron/issues/17972). Depending on your distro, you probably want to do something similar to this, so the settings are kept after reboot: Add `kernel.unprivileged_userns_clone=1` to `/etc/sysctl.d/00-local-userns.conf` and reboot.
+If *Stretchly* is not starting, you might need to run `sudo sysctl kernel.unprivileged_userns_clone=1`. Read more [here](https://github.com/electron/electron/issues/17972). Depending on your distro, you probably want to do something similar to this, so the preferences are kept after reboot: Add `kernel.unprivileged_userns_clone=1` to `/etc/sysctl.d/00-local-userns.conf` and reboot.
 
 ### Running from source
 
@@ -60,7 +62,7 @@ You can create a custom installer by running `npm run pack` or `npm run dist` af
 
 ## Default behavior
 
-When you run *Stretchly* for the first time, you are presented with a Welcome window that allows you to change the language, review the settings, view the online tutorial or simply continue with the default settings.
+When you run *Stretchly* for the first time, you are presented with a Welcome window that allows you to change the language, review the preferences, view the online tutorial or simply continue with the default preferences.
 
 <img src="welcome.png" height="340">
 
@@ -116,14 +118,18 @@ It's recommended to Quit *Stretchly* before editing the preferences file.
 
 To make sure that all works as expected, it's always good idea to check that format of the preferences file is correct, ie. by using [jsonformatter](https://jsonformatter.curiousconcept.com/).
 
-Some of the extra settings are available in Contributor Preferences for [Contributors](#contributor-preferences). Those are marked by [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences) badge.
+After you make changes to preferences files, some of the values being shown in Preferences or elsewhere might show incorect value, as the UI is expecting specific values and is not handling cases where user makes manual changes to preferences file.
+
+Some of the extra preferences are available in Contributor Preferences for [Contributors](#contributor-preferences). Those are marked by [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences) badge.
+
+Preferences marked with ![Not Reliable](https://img.shields.io/badge/Not_Reliable-β-yellow) might not work correctly and might break *Stretchly*. Use at own risk.
 
 **Note:** Before 1.0, Mini Breaks and Long Breaks were called Microbreaks and Breaks, respectively. To keep the upgrade smooth they still use that name in preferences file and in code.
 
 #### Editing Break ideas
 In the preferences file, change `useIdeasFromSettings: false,` to `useIdeasFromSettings: true,` and edit `breakIdeas` and `microbreakIdeas`.
 
-Note that when a new *Stretchly* version with new break ideas is out, your custom ideas will not be overwritten.
+Note that when a new *Stretchly* version with new break ideas is out, your custom ideas will not be overwritten. You can reset break ideas to the latest defaults when you "Restore defaults" from Preferences window.
 
 #### Editing Break notification interval [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences)
 
@@ -132,7 +138,7 @@ In the preferences file, change `breakNotificationInterval: 30000,` to whatever 
 #### Editing sunrise time to pause breaks until morning
 In the preferences file you can set the `morningHour` setting to pause until that hour today or the next day
 Otherwise, you can set `morningHour: "sunrise"` and set `posLatitude`, `posLongitude` in
-settings to pause until the actual sunrise in your area.
+preferences to pause until the actual sunrise in your area.
 E.g. if you live in Boston you would set:
 `morningHour: "sunrise",`
 `posLatitude: 42.3,`
@@ -154,7 +160,22 @@ In the preferences file, set `naturalBreaksInactivityResetTime` to your preferre
 In the preferences file, set `volume` to your preferred value. Default value is `1`, which is 100% volume. Set it, for example, to `0.61` for 61% volume.
 
 #### Postpone/Finish Break Shortcut
-In the preferences file, set `endBreakShortcut` to your preferred value. We do not validate this input, so please check [Electron's documentation](https://www.electronjs.org/docs/api/accelerator) for available values for key and modifier.
+In the preferences file, set `endBreakShortcut` to your preferred value. We do not validate this input, so please check [Electron's documentation](https://www.electronjs.org/docs/api/accelerator) for available values for key and modifier. When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+
+If you'd like to disable the shortcut, set value to empty string `""`.
+
+Default value is `CmdOrCtrl+X`.
+
+#### Pause Breaks Shortcut
+
+In the preferences file, set `pauseBreaksShortcut` to your preferred value. We do not validate this input, so please check [Electron's documentation](https://www.electronjs.org/docs/api/accelerator) for available values for key and modifier. When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+
+If you'd like to disable the shortcut, set value to empty string `""`. That's the default value as well.
+
+#### Resume Breaks Shortcut
+In the preferences file, set `resumeBreaksShortcut` to your preferred value. We do not validate this input, so please check [Electron's documentation](https://www.electronjs.org/docs/api/accelerator) for available values for key and modifier. When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+
+If you'd like to disable the shortcut, set value to empty string `""`. That's the default value as well.
 
 #### Appearance [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences)
 In the preferences file, change `themeSource: 'system'` to either `'light'` or `'dark'` to always use the specified theme.
@@ -168,8 +189,55 @@ To specify how solid the break window should be when Theme transparency is enabl
 #### Break window size [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences)
 To specify the size of the break window, set the value of `breakWindowHeight` and `breakWindowWidth` from `0` to `0.99` (which is in turn 0 to 99% of the size of the screen). Don't set 100% as that's fullscreen.
 
-#### Check for new version
-If you don't want to ever check for new version, set `checkNewVersion` to `false`.
+#### Make Stretchly show breaks as regular windows [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences) ![Not Reliable](https://img.shields.io/badge/Not_Reliable-β-yellow)
+
+If you want Stretchly breaks to act as regular windows (have a titlebar, turn off always on top, be minimizable and focusable) set `showBreaksAsRegularWindows` to `true`.
+
+#### Pause/resume breaks only when specific command is running
+
+By editing `appExclusions` in preferences file, you can automatically control when Stretchly breaks are paused.
+
+If you want Stretchly to be paused when specific apps are running, you could have this value (breaks are paused when Skype or Atom are running):
+
+```
+"appExclusions": [
+    {
+        "rule": "pause",
+        "active": true,
+        "commands": [
+            "/usr/share/skypeforlinux/skypeforlinux",
+            "atom"
+        ]
+    }
+]    
+```  
+
+If you want Stretchly to be running when specific apps are as well, you could have this value (breaks are paused when Skype or Atom are not running):
+
+```
+"appExclusions": [
+    {
+        "rule": "resume",
+        "active": true,
+        "commands": [
+            "/usr/share/skypeforlinux/skypeforlinux",
+            "atom"
+        ]
+    }
+]    
+```
+
+You can specify multiple values, (as `appExclusions` is array) and Stretchly will take the first one that is marked as `"active": true`. Multiple `commands` can be specified as well. They are case sensitive.
+
+#### Pause breaks on Suspend/Lock ![Not Reliable](https://img.shields.io/badge/Not_Reliable-β-yellow)
+If you don't want to reset breaks once system is back from Suspend/Lock, set `pauseForSuspendOrLock` to `false`.
+
+#### Monitor to show breaks on ![Not Reliable](https://img.shields.io/badge/Not_Reliable-β-yellow)
+In case you have disabled showing of breaks on all monitors, you can specify which one should contain the break window. Set `screen` value to one of the following:
+- `"primary"` - primary monitor as given by OS
+- `"cursor"` - monitor where there is cursor
+- `"0"` (or `0`), `"1"`, `"2"` etc, where `"0"` is the first monitor returned by OS and so forth  
+
 
 ## Contributor Preferences
 
@@ -191,6 +259,24 @@ You won't be able to chat on Discord.*
 Patreon [has fees](https://support.patreon.com/hc/en-us/articles/360027674431-Creator-fees-breakdown) plus it uses PayPal, which has its fees as well.
 
 *You will be able to access Contributor Preferences, Sync Preferences and Discord chat.*
+
+### Donating with Crypto currencies
+
+#### Bitcoin
+<img src="bitcoin.png" height="80"/> `3EyJNtJPuQjfqP5czN88kPySwxVjv7h42y`
+
+#### Ethereum
+
+<img src="ethereum.png" height="80"/> `0x377f05E76e96EC4C19fF225e767FeD77b1750294`
+
+#### Zcash
+
+<img src="zcash.png" height="80"/> `t1XyjwJtViEqATUnPKG6mdUwN4TkoCfxzcM`
+
+Let me know if you would like to use some other currency.
+
+*Currently, there are no rewards for donating with Crypto currencies, as we can't programmatically match them.*
+
 
 ### [Donating with PayPal](https://paypal.me/JanHovancik) [![Donate with PayPal](https://img.shields.io/static/v1?label=Donate&message=%E2%9D%A4&logo=Paypal&color=success)](https://paypal.me/JanHovancik)
 PayPal has fees.
@@ -219,17 +305,18 @@ Now you can clone the repo with `git clone https://github.com/hovancik/stretchly
 Read on.
 
 ### Debugging
-If you start *Stretchly* in development mode with the `npm run dev` command, it makes it possible to debug the application in your browser on `http://localhost:9222`.
 
-Also, you can use Stretchly's built-in debug shortcut by pressing `Ctrl/Cmd + D` in the About section to show information such as:
-  - Location of the preferences and log file (Clicking on file location will open it.)
+You can use Stretchly's built-in debug shortcut by pressing `Ctrl/Cmd + D` in the About section to show information such as:
+  - Location of the Preferences and Log file (Clicking on file location will open it),
   - Debug information for break planner
 
 You can copy debug information to the clipboard.
 
+If you start *Stretchly* in development mode with the `npm run dev` command, it makes it possible to debug the application in your browser on `http://localhost:9222`.
+
 ### Logging
 
-*Stretchly* uses `log` package for some extra logging.
+*Stretchly* uses `[log](https://github.com/megahertz/electron-log)` package for some extra logging.
 Format as following:
 - `System: my message` for messages regarding Operating System, ie: `System: resume or unlock`
 - `Stretchly: my message` for messages regarding *Stretchly*
@@ -241,13 +328,18 @@ You can help to translate Stretchly on [Weblate](https://hosted.weblate.org/enga
 
 
 ## Known issues
-- users who upgraded to Windows 10 from previous Windows versions might be in "Do Not Disturb mode" all the time so they need to check "Show breaks even in Do Not Disturb mode"
-- tray tooltip does not work correctly on macOS ([electron/electron#9447](https://github.com/electron/electron/issues/9447))
-- tray tooltip does not work correctly on Linux ([electron/electron#15161](https://github.com/electron/electron/issues/15161))
-- fullscreen is not shown on all displays on Windows ([electron/electron#16907](https://github.com/electron/electron/issues/16907))
 - power monitoring not working properly ([electron/electron#8560](https://github.com/electron/electron/issues/8560))
-- tray icon is not always rendered correctly on Linux ([electron/electron#12791](https://github.com/electron/electron/issues/12791))
-- users on macOS experiencing their Dock hiding after a break, requiring command + tab or a mouse click to get focus back, check System Preferences > Users & Groups > {User} > Login Items. If Hide is checked for Stretchly, uncheck it, it should solve the issue.
+
+### MacOS
+- users experiencing their Dock hiding after a break, requiring command + tab or a mouse click to get focus back, check System Preferences > Users & Groups > {User} > Login Items. If Hide is checked for Stretchly, uncheck it, it should solve the issue.
+
+### Linux
+- tray tooltip does not work correctly ([electron/electron#15161](https://github.com/electron/electron/issues/15161))
+- tray icon is not always rendered correctly ([electron/electron#12791](https://github.com/electron/electron/issues/12791))
+
+### Windows
+- users who upgraded to Windows 10 from previous Windows versions might be in "Do Not Disturb mode" all the time so they need to check "Show breaks even in Do Not Disturb mode"
+- users with Chromium-based browser (Chrome, Edge, etc...) [might need to set some flags](https://github.com/hovancik/stretchly/issues/783#issuecomment-762819646) when browser is non-responsive after break
 
 ## Contributors
 
@@ -308,12 +400,16 @@ You can help to translate Stretchly on [Weblate](https://hosted.weblate.org/enga
 - Benedikt Allendorf, [@BenediktAllendorf](https://github.com/BenediktAllendorf)
 - Haechan Song, [@hcsong213](https://github.com/hcsong213)
 - Will, [@qubist](https://github.com/qubist)
+- Abhilash Mandaliya, [@abhilashmandaliya](https://github.com/abhilashmandaliya)
+- Masi, [@The-Coding-Classroom](https://github.com/The-Coding-Classroom)
+- Saksham Sharma, [@ssaksham](https://github.com/ssaksham)
 
 Also see Github's list of [contributors](https://github.com/hovancik/stretchly/graphs/contributors).
 
 1.0 Icon and UI design by Colin Shanley ([www.colinshanley.com](http://www.colinshanley.com/)).
 
 ## Humans and Tools
+ - https://github.com/HatScripts/circle-flags
  - https://www.icoconverter.com/ to generate .ico
  - http://www.img2icnsapp.com/ to create .icns
  - https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/

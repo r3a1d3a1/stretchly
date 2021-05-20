@@ -1,4 +1,4 @@
-const { remote } = require('electron')
+const remote = require('@electron/remote')
 const i18next = remote.require('i18next')
 class HtmlTranslate {
   constructor (document) {
@@ -14,6 +14,7 @@ class HtmlTranslate {
         element.innerHTML = i18next.t(element.dataset.i18next)
       }
     })
+    this.document.body.dir = require('rtl-detect').getLangDir(i18next.language)
   }
 }
 

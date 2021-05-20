@@ -1,24 +1,24 @@
 {
   "name": "Stretchly",
-  "version": "1.3.0",
+  "version": "1.7.0",
   "description": "The break time reminder app",
   "main": "app/main.js",
   "engines": {
-    "node": "12.14.1"
+    "node": "14.16.0"
   },
   "scripts": {
     "start": "electron ./app",
     "dev": "cross-env NODE_ENV=development electron ./app --enable-logging --remote-debugging-port=9222",
-    "electromon": "electromon ./app",
     "postinstall": "electron-builder install-app-deps",
-    "pack-all": "electron-builder build --dir -mwl --x64 --ia32",
-    "dist-all": "electron-builder build -mwl --x64 --ia32",
     "pack": "electron-builder build --dir",
     "dist": "electron-builder build --x64 --ia32",
-    "test": "mocha test",
+    "test": "mocha test --exclude test/main.js",
+    "test-e2e": "mocha test/main.js",
     "test-single": "mocha $1",
     "tdd": "mocha --watch test",
-    "lint": "./node_modules/.bin/standard"
+    "lint": "./node_modules/.bin/standard",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "repository": {
     "type": "git",
@@ -36,21 +36,6 @@
     "url": "https://github.com/hovancik/stretchly/issues"
   },
   "homepage": "https://hovancik.net/stretchly",
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "cross-env": "^7.0.2",
-    "electromon": "^1.0.10",
-    "electron": "9.1.0",
-    "electron-builder": "^22.9.1",
-    "husky": "^4.3.0",
-    "mocha": "^8.2.1",
-    "rimraf": "^3.0.2",
-    "sinon": "^9.2.1",
-    "spectron": "^12.0.0",
-    "standard": "^16.0.1"
-  },
   "build": {
     "appId": "net.hovancik.stretchly",
     "productName": "Stretchly",
@@ -96,9 +81,7 @@
     "win": {
       "target": [
         "nsis",
-        "nsis-web",
-        "7z",
-        "zip"
+        "7z"
       ]
     },
     "nsis": {
@@ -111,7 +94,6 @@
     }
   },
   "standard": {
-    "parser": "babel-eslint",
     "globals": [
       "it",
       "describe",
@@ -128,19 +110,31 @@
       "sun.js"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "cross-env": "^7.0.3",
+    "electron": "^12.0.8",
+    "electron-builder": "^22.10.5",
+    "husky": "^6.0.0",
+    "mocha": "^8.4.0",
+    "rimraf": "^3.0.2",
+    "sinon": "^10.0.0",
+    "spectron": "^14.0.0",
+    "standard": "^16.0.3"
   },
   "dependencies": {
+    "@electron/remote": "^1.1.0",
     "@meetfranz/electron-notification-state": "^1.0.0",
-    "electron-log": "^4.3.0",
-    "i18next": "^19.8.3",
+    "electron-log": "^4.3.5",
+    "electron-store": "^8.0.0",
+    "i18next": "^20.2.4",
     "i18next-node-fs-backend": "^2.1.3",
-    "luxon": "^1.25.0",
-    "meeussunmoon": "^3.0.2",
-    "semver": "^7.3.2",
+    "luxon": "^1.27.0",
+    "meeussunmoon": "^3.0.3",
+    "ps-list": "^7.2.0",
+    "rtl-detect": "^1.0.3",
+    "semver": "^6.3.0",
     "windows-focus-assist": "^1.2.1"
   }
 }

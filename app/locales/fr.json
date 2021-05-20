@@ -1,6 +1,6 @@
 {
   "main": {
-    "toolTipHeader": "Stretchly - Application de rappel de pauses",
+    "toolTipHeader": "Stretchly – Application de rappel de pauses",
     "microbreakIn": "Petite pause dans $t(utils.seconds, {'count': {{seconds}} })",
     "breakIn": "Grande pause dans $t(utils.seconds, {'count': {{seconds}} })",
     "resumingBreaks": "Reprise des pauses",
@@ -11,19 +11,19 @@
     "resume": "Reprendre",
     "pause": "Arrêter les pauses",
     "forHour": "Une heure",
-    "for2Hours": "Deux heures",
+    "for2Hours": "2 heures",
     "for5Hours": "5 heures",
     "untilMorning": "Jusqu'au matin",
     "indefinitely": "Indéfiniment",
     "resetBreaks": "Réinitiliser les pauses",
     "quitStretchly": "Quitter Stretchly",
     "restoreDefaults": "Réinitialiser",
-    "warning": "Cela va réinitialiser l'application, toutes vos préférences seront perdues.",
+    "warning": "Ceci va réinitialiser l'application, toutes vos préférences seront perdues.",
     "continue": "Continuer",
     "cancel": "Annuler",
     "preferences": "Préférences",
     "contributorPreferences": "Préférences de contributeur",
-    "syncPreferences": "Sync Preferences"
+    "syncPreferences": "Synchroniser les préférences"
   },
   "break": {
     "postpone": "Reporter cette pause",
@@ -46,7 +46,7 @@
       "fullscreen": "Plein écran",
       "showIdeas": "Montrer des conseils d'exercices pendant les pauses",
       "allScreens": "Montrer les pauses sur tous les écrans",
-      "monitorIdleTime": "Surveiller les périodes d'inactivité (le décompte des pauses s'arrêtera si le système est inactif)",
+      "monitorIdleTime": "Surveiller les périodes d'inactivité (le décompte des pauses s'arrêtera si le système est inactif).",
       "monitorDnd": "Afficher les pauses même en mode « Ne pas déranger »",
       "language": "Choisissez votre langue :",
       "restoreDefaults": "Réinitialiser"
@@ -68,7 +68,7 @@
       "strictModeInfo": "Le mode strict interdit le report des pauses et permet d'aider à respecter les temps de repos.",
       "enableStrictMini": "Activer le mode strict pour les petites pauses",
       "enableStrictLong": "Activer le mode strict pour les grandes pauses",
-      "cantDisableBoth": "Veuillez  activer l'un des deux types de pause"
+      "cantDisableBoth": "Veuillez activer l'un des deux types de pause"
     },
     "theme": {
       "appearance": "Apparence :",
@@ -86,7 +86,8 @@
       "menubarIcon": "Icône de la bar de menu :",
       "colour": "Couleur",
       "monochrome": "Monochrome",
-      "invertedMonochrome": "Monochrome inversé"
+      "invertedMonochrome": "Monochrome inversé",
+      "snowWhite": "Blanche Neige"
     },
     "about": {
       "tagline": "Application de rappel de pauses",
@@ -98,7 +99,8 @@
       "dot": ".",
       "developedBy": "Développé par",
       "janH": "Jan Hovancik",
-      "designedBy": "Icon and UI design by Colin Shanley"
+      "designedBy": "Icône et IU conçues par Colin Shanley",
+      "checkNewVersion": "Vérifier automatiquement la présence de mise à jour"
     },
     "heart": {
       "loveStretchly": "Vous aimez Stretchly ?",
@@ -108,7 +110,7 @@
       "alreadyContributor": "Je suis déjà un contributeur",
       "authenticateUsing": "S'authentifier par :",
       "contributorPreferences": "Préférences de contributeur",
-      "syncPreferences": "Sync Preferences"
+      "syncPreferences": "Synchroniser les préférences"
     }
   },
   "contributorPreferences": {
@@ -135,12 +137,12 @@
     "welcomeWindow": "Écran de bienvenue :",
     "showWelcomeWindow": "Afficher l'écran de bienvenue au prochain démarrage",
     "opacityTheme": "Opacité du thème :",
-    "opacityInfo": "Si la transparance est activé dans les Paramètres, vous pouvez spécifier le pourcentage d'opacité de la fenêtre de pause",
+    "opacityInfo": "Quel niveau d'opacité devrait avoir la fenêtre de pause ?",
     "opacity": "Opacité :",
-    "breakWindowSize": "Break window size",
-    "breakWindowSizeInfo": "What percentage of the screen should the break window hide?",
-    "breakWindowWidth": "Width:",
-    "breakWindowHeight": "Height:",
+    "breakWindowSize": "Taille de la fenêtre de pause",
+    "breakWindowSizeInfo": "Quel pourcentage de l'écran la fenêtre de pause doit-elle masquer ?",
+    "breakWindowWidth": "Largeur :",
+    "breakWindowHeight": "Hauteur :",
     "sounds": "Sons :",
     "volume": "Volume :",
     "miniBreakStartSound": "Jouer le son de fin de pause également au début d'une petite pause",
@@ -151,7 +153,10 @@
     "appearance": "Apparence :",
     "light": "Clair",
     "dark": "Sombre",
-    "system": "Système"
+    "system": "Système",
+    "showBreaksAsRegularWindows": "Montrer les pauses comme des fenêtres standard",
+    "showBreaksAsRegularWindowsInfo": "Quand elles sont activées, les fenêtres de pause deviennent focalisables. Elles ne sont plus \"Toujours en haut\" et apparaissent également dans la barre de tâches.",
+    "showBreaksAsRegularWindowsTitle": "Agir comme une fenêtre standard :"
   },
   "utils": {
     "none": "{{count}}",
@@ -193,6 +198,7 @@
     "nextMiniBreak": "Prochaine petite pause",
     "afterMiniBreak": "après {{count}} petite pause",
     "afterMiniBreak_plural": "after {{count}} petites pauses",
-    "resuming": "Reprendre"
+    "resuming": "Reprendre",
+    "appExclusion": "Appliquer la règle d’exclusion"
   }
 }

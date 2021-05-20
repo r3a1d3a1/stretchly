@@ -4,6 +4,10 @@ body {
   font-family: Open Sans;
 }
 
+body > div > :last-child {
+  margin-bottom: 24px;
+}
+
 .welcome {
   display: grid;
   font-size: 13px;
@@ -39,6 +43,11 @@ body {
   padding-left: 12px;
 }
 
+body[dir=rtl] .welcome > :nth-child(1) > div > span {
+  padding-left: 0;
+  padding-right: 12px;
+}
+
 .welcome > :nth-child(1) > span {
   font-family: Open Sans Light;
   font-size: 20px;
@@ -48,7 +57,7 @@ body {
 .welcome > :nth-child(2) {
   display: grid;
   grid-gap: 10px 20px;
-  grid-template: repeat(3, minmax(86px, min-content))/ repeat(8, 1fr);
+  grid-template: repeat(5, minmax(86px, min-content))/ repeat(8, 1fr);
 }
 
 .welcome > :nth-child(2) > div {
@@ -74,7 +83,13 @@ body {
   margin-left: auto;
 }
 
-.welcome input[type="radio"] + label:before {
+body[dir=rtl] .welcome > :last-child > :last-child {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.welcome input[type="radio"] + label:before,
+body[dir=rtl] .welcome input[type="radio"] + label:before {
   display: block;
   margin: 0 auto;
 }

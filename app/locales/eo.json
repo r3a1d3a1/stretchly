@@ -27,7 +27,7 @@
   },
   "break": {
     "postpone": "Prokrasti ĉi tiun paŭzon",
-    "skip": "Preterpasi ĉi tuin paŭzon",
+    "skip": "Preterpasi ĉi tiun paŭzon",
     "title": "Tempo por paŭzi!"
   },
   "preferences": {
@@ -44,7 +44,7 @@
       "showBreaksIn": "Montri paŭzojn:",
       "window": "En fenestro",
       "fullscreen": "Tutekrane",
-      "showIdeas": "Montri ekzercaj konsiloj dum paŭzoj",
+      "showIdeas": "Montri ekzercajn konsilojn dum paŭzoj",
       "allScreens": "Montri paŭzojn en ĉiuj ekranoj",
       "monitorIdleTime": "Observi senokupan tempon (Paŭzigi paŭzojn se sistemo estas senokupa).",
       "monitorDnd": "Montri paŭzojn eĉ en senĝena reĝimo",
@@ -53,14 +53,14 @@
     },
     "schedule": {
       "miniBreaks": "Paŭzetoj:",
-      "miniBreaksInfo": "Paŭzetoj estas oftaj mallongaj paŭzoj, kuij donas al vi ŝancon streĉi kaj malstreĉiĝi.",
+      "miniBreaksInfo": "Paŭzetoj estas oftaj mallongaj paŭzoj, kiuj donas al vi ŝancon streĉi kaj malstreĉiĝi.",
       "enableMiniBreaks": "Ŝalti Paŭzetoj",
       "breakFor": "Paŭzi por:",
       "every": "Ĉiujn:",
       "showNotificationBeforeMiniBreak": "Montri sciigon antaŭ ol Paŭzeto komenciĝos",
       "enablePostponeMini": "Ŝalti prokraston por Paŭzetoj",
       "longBreaks": "Longaj Paŭzoj:",
-      "longBreaksInfo": "Longaj Paŭzoj estas malpli oftaj, sed estas pli longaj. Ili permesas al vi pli longan paŭzon de via laboro",
+      "longBreaksInfo": "Longaj Paŭzoj estas malpli oftaj, sed estas pli longaj. Ili permesas al vi pli longan paŭzon de via laboro.",
       "enableLongBreaks": "Ŝalti Longajn Paŭzojn",
       "showNotificationBeforeLongBreak": "Montri sciigon antaŭ ol Longan Paŭzon komenciĝos",
       "enablePostponeLong": "Ŝalti prokraston por Longaj Paŭzoj",
@@ -86,19 +86,21 @@
       "menubarIcon": "Menubreta bildsimbolo:",
       "colour": "Kolora",
       "monochrome": "Unukolora",
-      "invertedMonochrome": "Inversigita unukolora"
+      "invertedMonochrome": "Inversigita unukolora",
+      "snowWhite": "Neĝblanka"
     },
     "about": {
       "tagline": "La aplikaĵo por memorigi pri paŭzoj",
       "version": "Versio ",
       "latestVersion": "Plej freŝa versio ",
-      "notifyNewVersion":"Aŭtomate sciigi kiam ĝisdatiginta",
+      "notifyNewVersion": "Aŭtomate sciigi kiam ĝisdatiginta",
       "learnMore": "Por lerni pli pri ebloj de Stretchly, spekti instruilon, elŝuti la plej freŝan version, aŭ kontakti nin por subteno, ",
       "ourWebsite": "visitu nian retejon",
       "dot": ".",
       "developedBy": "Programis de",
       "janH": "Jan Hovancik",
-      "designedBy": "Bildsimbolo kaj interfaca aspektigo de Colin Shanley"
+      "designedBy": "Bildsimbolo kaj interfaca aspektigo de Colin Shanley",
+      "checkNewVersion": "Aŭtomate kontroli ĝisdatigojn de la programo"
     },
     "heart": {
       "loveStretchly": "Ĉu vi amas vian Stretchly?",
@@ -133,7 +135,7 @@
     "pauseUntil": "Paŭzigi ĝis:",
     "pauseUntilMorningInfo": "Ŝanĝi ĝis kioma horo 'Paŭzigi ĝis mateno' devas paŭzigi.",
     "welcomeWindow": "Bonvena fenestro:",
-    "showWelcomeWindow": "Montri Bonvenan fenestron je la sekva lanĉo.",
+    "showWelcomeWindow": "Montri Bonvenan fenestron je la sekva lanĉo",
     "opacityTheme": "Etosa travideblecon:",
     "opacityInfo": "Kiel travidebla vi volas, ke la fenestro estu?",
     "opacity": "Travidebleco:",
@@ -151,7 +153,20 @@
     "appearance": "Mieno:",
     "light": "Hela",
     "dark": "Malhela",
-    "system": "Sistema"
+    "system": "Sistema",
+    "showBreaksAsRegularWindowsInfo": "Se ŝaltita, Paŭzaj fenestroj estos enfokusigeblaj; ili ne plu estos 'Ĉiam supraj', kaj ili ankaŭ aperos sur la taskopleto.",
+    "showBreaksAsRegularWindows": "Montri paŭzojn kiel regulajn fenestrojn",
+    "showBreaksAsRegularWindowsTitle": "Agi kiel regula fenestro:",
+    "screenInfo": "Se paŭzoj ne montriĝos sur ĉiuj ekranoj, vi povas elekti tiun ekranon, sur kiu montriĝos viaj Paŭzoj.",
+    "4": "Kvina ekrano",
+    "3": "Kvara ekrano",
+    "2": "Tria ekrano",
+    "1": "Dua ekrano",
+    "0": "Unua ekrano",
+    "primary": "Ĉefekrano",
+    "screen": "Ekrano por Paŭzoj:",
+    "cursor": "Sekvi kursoron",
+    "showOnMonitor": "Montri Paŭzojn sur"
   },
   "utils": {
     "none": "{{count}}",
@@ -193,6 +208,7 @@
     "nextMiniBreak": "Sekva Paŭzeto",
     "afterMiniBreak": "post {{count}} Paŭzeto",
     "afterMiniBreak_plural": "post {{count}} Paŭzetoj",
-    "resuming": "Daŭriĝos"
+    "resuming": "Daŭriĝos",
+    "appExclusion": "Regulo por ekskluzivi aplikaĵojn"
   }
 }

@@ -5,18 +5,84 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- improve tray status messages
+- updated many translations
 
+## [1.7.0] - 2021-05-04
 ### Added
-- Esperanto translations
+- advanced preferences for Pause/Resume Breaks global shortcuts
+- advanced preferences for picking monitor to show break on
+- added initial support for the RTL languages for the UI
 
 ### Changed
-- Updated Bulgarian translations
-- Updated Swedish translations
+- endBreakShortcut can be set to empty string, thus disabled
+- updated many translations
+
+### Fixed
+- prevent memory leak after break has ended
+
+## [1.6.99] - 2021-05-02 Patreon
+### Added
+- advanced preferences for Pause/Resume Breaks global shortcuts
+- advanced preferences for picking monitor to show break on
+- added initial support for the RTL languages for the UI
+
+### Changed
+- endBreakShortcut can be set to empty string, thus disabled
+
+## [1.6.0] - 2021-04-16
+### Fixed
+- app exclusions on Windows OS
+- fullscreen breaks on MacOS
+- refreshing Preferences after Reset to defaults
+
+### Added
+- advanced option not to reset breaks on Suspend/Lock
+- Stretchly doesn't need to restart after Restoring remote settings
+- Updated many translations
+
+### Changed
+- new system for storing preferences
+- improved logging
+- allow user to disable update check rather then only notification
+
+## [1.5.0] - 2021-04-07
+### Added
+- Punjabi translations
+- Gujarati translations
+- Persian translations
+- Hebrew translations
+- Finnish translations
+- Indonesian translations
+- Latvian translations
+- Contributor preference option to make Stretchly act as a regular window (to make use of other apps during breaks easier)
+- Advanced preferences for app exclusions (resume/pause when specific app is/not running)
+
+### Changed
+- Updated many translations
+
+### Fixed
+- Improved Welcome window
+- tray menu not visible over break window on macOS
+- tray status messages in specific situations
+
+## [1.4.0] - 2020-12-25
+### Added
+- Better handling of app errors: error will ask user to report issue
+- Esperanto translations
+- Norwegian translations
+- Snow white theme
+- experimental Linux builds for arm
+
+### Changed
+- Updated many translations
 
 ### Fixed
 - notification of new version being showed even disabled
 - browser tab non-responsive after resuming
 - don't show notification title for macOS Big Sur
+- DND mode in macOS Big Sur
 
 ## [1.3.0] - 2020-11-08
 ### Added
@@ -523,7 +589,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - resume/pause functionality for reminder
 - scripts for creating installers for OS X, Windows, Linux
 
-[Unreleased]: https://github.com/hovancik/stretchly/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/hovancik/stretchly/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/hovancik/stretchly/compare/v1.6.0...v1.7.0
+[1.6.0]: https://github.com/hovancik/stretchly/compare/v1.5.0...v1.6.0
+[1.5.0]: https://github.com/hovancik/stretchly/compare/v1.4.0...v1.5.0
+[1.4.0]: https://github.com/hovancik/stretchly/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/hovancik/stretchly/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/hovancik/stretchly/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/hovancik/stretchly/compare/v1.0.0...v1.1.0

@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title data-i18next="welcome.title"></title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/color-scheme.css">
     <link rel="stylesheet" type="text/css" href="css/commons.css">
@@ -17,7 +19,7 @@
         </div>
         <span data-i18next="welcome.breakTimeReminderApp"></span>
       </div>
-      <div>
+      <div dir="ltr">
         <div>
           <img src="images/flags/flag-bulgaria.svg" alt="Bulgaria">
           <input type="radio" value="bg" name="language" id="bg">
@@ -68,10 +70,38 @@
           </label>
         </div>
         <div>
+          <img src="images/flags/flag-iran.svg" alt="Iran">
+          <input type="radio" value="fa" name="language" id="fa">
+          <label for="fa">
+            فارسی
+          </label>
+        </div>
+        <div>
+          <img src="images/flags/flag-finland.svg" alt="Finnish">
+          <input type="radio" value="fi" name="language" id="fi">
+          <label for="fi">
+            Suomi
+          </label>
+        </div>
+        <div>
           <img src="images/flags/flag-france.svg" alt="France">
           <input type="radio" value="fr" name="language" id="fr">
           <label for="fr">
             Français
+          </label>
+        </div>
+        <div>
+          <img src="images/flags/flag-india.svg" alt="India">
+          <input type="radio" value="gu" name="language" id="gu">
+          <label for="gu">
+            ગુજરાતી
+          </label>
+        </div>
+        <div>
+          <img src="images/flags/flag-israel.svg" alt="Israel">
+          <input type="radio" value="he" name="language" id="he">
+          <label for="he">
+            עברית
           </label>
         </div>
         <div>
@@ -86,6 +116,13 @@
           <input type="radio" value="hu" name="language" id="hu">
           <label for="hu">
             Magyar
+          </label>
+        </div>
+        <div>
+          <img src="images/flags/flag-indonesia.svg" alt="Indonesia">
+          <input type="radio" value="id" name="language" id="id">
+          <label for="id">
+            Bahasa Indonesia
           </label>
         </div>
         <div>
@@ -110,13 +147,27 @@
           </label>
         </div>
         <div>
+          <img src="images/flags/flag-latvia.svg" alt="Latvia">
+          <input type="radio" value="lv" name="language" id="lv">
+          <label for="lv">
+            Latviešu
+          </label>
+        </div>
+        <div>
+          <img src="images/flags/flag-norway.svg" alt="Bokmål">
+          <input type="radio" value="nb_NO" name="language" id="nb_NO">
+          <label for="nb_NO">
+            Bokmål
+          </label>
+        </div>
+        <div>
           <img src="images/flags/flag-netherlands.svg" alt="Netherlands">
           <input type="radio" value="nl" name="language" id="nl">
           <label for="nl">
             Nederlands
           </label>
         </div>
-         <div>
+        <div>
           <img src="images/flags/flag-nepal.svg" alt="Nepal">
           <input type="radio" value="np" name="language" id="np">
           <label for="np">
@@ -135,6 +186,13 @@
           <input type="radio" value="pt-BR" name="language" id="pt-BR">
           <label for="pt-BR">
             Brasileiro
+          </label>
+        </div>
+        <div>
+          <img src="images/flags/flag-india.svg" alt="India">
+          <input type="radio" value="pu" name="language" id="pu">
+          <label for="pu">
+            ਪੰਜਾਬੀ
           </label>
         </div>
         <div>
@@ -205,9 +263,5 @@
         </div>
       </div>
     </div>
-    <script>
-      require('./platform.js')
-      require('./welcome.js')
-    </script>
   </body>
 </html>
